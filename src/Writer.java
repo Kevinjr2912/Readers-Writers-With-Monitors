@@ -12,7 +12,7 @@ public class Writer extends Thread {
         try {
             this.monitor.write(this.id);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }

@@ -12,7 +12,6 @@ public class Monitor {
         // Mientras haya lectores, el escritor no puede hacer nada
         while(readers != 0 || isWriting) {
             wait();
-            System.out.println("Writer" + id + "waiting");
         }
 
         // Con esto, negamos que cualquier lector pueda continuar en su proceso de lectura
@@ -36,7 +35,6 @@ public class Monitor {
         // Mientras un escritor esté en su proceso, el lector debe esperar a que este culmine
         while(isWriting){
             wait();
-            System.out.println("Reader" + id + "waiting");
         }
 
         System.out.println("Reader " + id + " currently reading the resource");
