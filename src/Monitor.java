@@ -30,12 +30,12 @@ public class Monitor {
 
     public synchronized void read(int id) throws InterruptedException {
 
-        readers++;
-
         // Mientras un escritor esté en su proceso, el lector debe esperar a que este culmine
         while(isWriting){
             wait();
         }
+
+        readers++;
 
         System.out.println("Reader " + id + " currently reading the resource");
 
